@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\UserCreated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,6 +19,10 @@ class User extends Authenticatable
     use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+    ];
 
     /**
      * The attributes that are mass assignable.
