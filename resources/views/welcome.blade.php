@@ -125,6 +125,13 @@
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
+                    <div class="content">
+                        <form action="{{ asset('charge') }}" method="POST">
+                            {{ csrf_field() }}
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ env('STRIPE_KEY') }}" data-amount="1000" data-name="Stripe Demo" data-label="決済をする" data-description="Online course about integrating Stripe" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="JPY">
+                            </script>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
