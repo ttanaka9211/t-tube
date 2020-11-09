@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChargeController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/', [PostsController::class, 'index'])->name('top');
 Route::resource('posts', PostsController::class)->only(['create', 'store', 'show', 'edit', 'update', 'destroy']);
 Route::resource('comments', CommentsController::class)->only(['store']);
+Route::post('/charge', [ChargeController::class, 'index']);
