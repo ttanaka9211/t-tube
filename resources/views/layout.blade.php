@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
-    <title>Laravel BBS</title>
+    <title>t-tube</title>
 
     <link
         rel="stylesheet"
@@ -15,7 +15,7 @@
     <header class="navbar navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('') }}">
-                Laravel BBS
+                t-tube
             </a>
         </div>
     </header>
