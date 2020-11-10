@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -58,5 +59,17 @@ class PostsController extends Controller
         $post->fill($params)->save;
 
         return redirect()->route('posts.show', ['post' => $post]);
+    }
+
+    public function destroy($post_id)
+    {
+        $post = Post::findOrFail($post_id);
+
+        DB::transaction(function () use ($post) {
+            $post->comments()->delete();
+            $post->delete();
+        });
+
+        return redirect()->route('top');
     }
 }
